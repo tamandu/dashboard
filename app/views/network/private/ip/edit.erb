@@ -1,0 +1,22 @@
+<h4>Edit IP Address</h4>
+<br>
+<div class="col-lg-6">
+  <form class="form" role="form" method="post" action="/network/private/<%= network_id %>/ip/<%= ip[:id] %>">
+    <div class="form-group">
+      <label for="network_address">IP Address</label>
+      <input type="text" class="form-control" name="ip_address" value="<%= ip[:ip_address] %>" disabled>
+    </div>
+    <div class="form-group">
+      <label for="subnet_mask">Hostname</label>
+      <input type="text" class="form-control" name="hostname" value="<%= ip[:hostname] %>">
+    </div>
+    <div class="form-group">
+      <label for="comment">Comment</label>
+      <input type="text" class="form-control" name="comment" value="<%= ip[:comment] %>">
+    </div>
+    <br>
+    <a href="/network/private/<%= network_id %>/ip" class="btn btn-default btn-sm">Cancel</a>
+    <input type="hidden" name="_method" value="put">
+    <button type="submit" class="btn btn-primary btn-sm">Update</button>
+  </form>
+</div>

@@ -1,0 +1,33 @@
+<h4>Edit Global IP Address</h4>
+<br>
+<div class="col-lg-6">
+  <% unless errors.nil? %>
+    <div class="alert alert-danger" role="alert">
+      <% errors.each do |k, v| %>
+        <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span><%= v.first %><br>
+      <% end %>
+    </div>
+  <% end %>
+  <form class="form" role="form" method="post" action="/network/global/<%= global_ip[:id] %>">
+    <div class="form-group">
+      <label for="global_ip">Global IP Address</label>
+      <input type="text" class="form-control" name="global_ip" value="<%= global_ip[:global_ip] %>" disabled>
+    </div>
+    <div class="form-group">
+      <label for="mapped_ip">Mapped IP Address</label>
+      <input type="text" class="form-control" name="mapped_ip" value="<%= global_ip[:mapped_ip] %>">
+    </div>
+    <div class="form-group">
+      <label for="hostname">Hostname</label>
+      <input type="text" class="form-control" name="hostname" value="<%= global_ip[:hostname] %>">
+    </div>
+    <div class="form-group">
+      <label for="comment">Comment</label>
+      <input type="text" class="form-control" name="comment" value="<%= global_ip[:comment] %>">
+    </div>
+    <br>
+    <a href="/network/global" class="btn btn-default btn-sm">Cancel</a>
+    <input type="hidden" name="_method" value="put">
+    <button type="submit" class="btn btn-primary btn-sm">Update</button>
+  </form>
+</div>

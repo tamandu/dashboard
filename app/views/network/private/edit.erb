@@ -1,0 +1,33 @@
+<h4>Edit Network Address</h4>
+<br>
+<div class="col-lg-6">
+  <% unless errors.nil? %>
+    <div class="alert alert-danger" role="alert">
+      <% errors.each do |k, v| %>
+        <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span><%= v.first %><br>
+      <% end %>
+    </div>
+  <% end %>
+  <form class="form" role="form" method="post" action="/network/private/<%= network[:id] %>">
+    <div class="form-group">
+      <label for="network_address">Network Address</label>
+      <input type="text" class="form-control" name="network_address" value="<%= network[:network_address] %>" disabled>
+    </div>
+    <div class="form-group">
+      <label for="subnet_mask">Subnet Mask</label>
+      <input type="text" class="form-control" name="subnet_mask" value="<%= network[:subnet_mask] %>" disabled>
+    </div>
+    <div class="form-group">
+      <label for="vlan_id">VLAN ID</label>
+      <input type="text" class="form-control" name="vlan_id" value="<%= network[:vlan_id] %>">
+    </div>
+    <div class="form-group">
+      <label for="comment">Comment</label>
+      <input type="text" class="form-control" name="comment" value="<%= network[:comment] %>">
+    </div>
+    <br>
+    <a href="/network/private" class="btn btn-default btn-sm">Cancel</a>
+    <input type="hidden" name="_method" value="put">
+    <button type="submit" class="btn btn-primary btn-sm">Update</button>
+  </form>
+</div>

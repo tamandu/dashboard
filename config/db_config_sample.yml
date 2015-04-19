@@ -1,0 +1,4 @@
+:host: <DB IP Address or Hostname>
+:username: <DB username>
+:password: <DB password>
+:database: <DB name>
